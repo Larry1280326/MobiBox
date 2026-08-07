@@ -1,3 +1,4 @@
+# MobiBox Server — FastAPI backend for behavioral monitoring
 import logging
 from contextlib import asynccontextmanager
 
