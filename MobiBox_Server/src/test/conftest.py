@@ -41,9 +41,6 @@ def pytest_configure(config):
 def pytest_collection_modifyitems(config, items):
     """Skip integration tests if required credentials are not available."""
     has_llm_api_key = bool(os.getenv("OPENROUTER_API_KEY"))
-    has_supabase_creds = bool(
-        os.getenv("SUPABASE_URL") and os.getenv("SUPABASE_SERVICE_ROLE_KEY")
-    )
 
     for item in items:
         if "integration" in item.keywords:

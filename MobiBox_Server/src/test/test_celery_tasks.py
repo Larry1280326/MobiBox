@@ -1,8 +1,6 @@
 """Tests for Celery tasks."""
 
 import pytest
-from unittest.mock import MagicMock, patch, AsyncMock
-from datetime import datetime, timedelta
 
 from src.celery_app.tasks.har_tasks import process_har_batch
 from src.celery_app.tasks.atomic_tasks import process_atomic_activities_batch
@@ -14,8 +12,6 @@ class TestHarTasks:
     @pytest.mark.asyncio
     async def test_process_har_batch_no_users(self):
         """Test HAR batch processing with empty user list."""
-        mock_client = MagicMock()
-
         # This should handle empty list gracefully
         result = {"processed": 0, "skipped": 0, "errors": 0, "labels": []}
 

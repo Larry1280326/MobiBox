@@ -15,7 +15,7 @@ Dimensions:
 
 import logging
 from collections import Counter
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional
 from zoneinfo import ZoneInfo
 
@@ -169,7 +169,7 @@ def generate_macro_timeline(
         return "unknown"
 
     def get_dominant_label(rle_segments: list[tuple[str, float, float]],
-                          start_min: float, end_min: float) -> str:
+                           start_min: float, end_min: float) -> str:
         """Get the dominant label in a time range."""
         if not rle_segments:
             return "unknown"
@@ -202,8 +202,8 @@ def generate_macro_timeline(
 
         # Format the timeline entry
         entry = (f"{slot_start:.0f}-{slot_end:.0f} min | "
-                f"act={har} | loc={loc} | phone={phone} | "
-                f"steps={steps} | disp={movement} | app={app}")
+                 f"act={har} | loc={loc} | phone={phone} | "
+                 f"steps={steps} | disp={movement} | app={app}")
         timeline.append(entry)
 
     return timeline
@@ -297,8 +297,9 @@ def encode_atomic_activities(
 
     # Calculate window duration
     if window_duration_min is None:
-        all_timestamps = [ts for ts, _ in har_data + location_data + phone_data +
-                         steps_data + movement_data + app_data]
+        all_timestamps = [ts for ts, _ in (
+            har_data + location_data + phone_data + steps_data + movement_data + app_data
+        )]
         if all_timestamps:
             duration = (max(all_timestamps) - min(all_timestamps)).total_seconds() / 60.0
             window_duration_min = max(duration, 1.0)  # At least 1 minute

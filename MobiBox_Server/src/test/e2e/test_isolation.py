@@ -3,8 +3,6 @@
 Verifies that multiple users' data remains isolated across the entire pipeline.
 """
 
-import asyncio
-
 import pytest
 
 

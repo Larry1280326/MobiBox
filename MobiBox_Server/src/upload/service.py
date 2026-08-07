@@ -1,7 +1,5 @@
 """Business logic for upload operations."""
 
-from datetime import datetime
-
 from src.database import get_database
 from src.upload.constants import (
     DOCUMENTS_OPTIONAL_FIELDS,

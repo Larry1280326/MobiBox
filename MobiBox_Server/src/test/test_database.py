@@ -4,7 +4,6 @@ Tests the async get_database(), close_database(), get_sync_database(), and
 check_connection() functions with mocked Motor/PyMongo clients.
 """
 
-import asyncio
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
@@ -72,14 +71,14 @@ class TestGetDatabase:
             db_mod._async_db = None
             db_mod._async_client_loop_id = None
 
-            db1 = await db_mod.get_database()
+            _ = await db_mod.get_database()
             first_loop_id = db_mod._async_client_loop_id
             assert first_loop_id is not None
 
             # Simulate a different event loop
             db_mod._async_client_loop_id = 99999
 
-            db2 = await db_mod.get_database()
+            _ = await db_mod.get_database()
             second_loop_id = db_mod._async_client_loop_id
 
             # Should have recreated (loop ID changed)

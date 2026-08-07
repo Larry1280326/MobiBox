@@ -30,20 +30,15 @@ pytestmark = pytest.mark.skipif(
 )
 
 
-def has_service_role_key() -> bool:
-    """Check if service role key is available for admin operations."""
-    return bool(os.getenv("SUPABASE_SERVICE_ROLE_KEY"))
+from supabase import Client  # noqa: E402
 
-from supabase import Client
-
-from src.database import get_supabase_client, get_supabase_admin_client
-from src.celery_app.services.har_service import (
+from src.database import get_supabase_client, get_supabase_admin_client  # noqa: E402
+from src.celery_app.services.har_service import (  # noqa: E402
     get_imu_window,
-    run_mock_har_model,
     insert_har_label,
     process_har_for_user,
 )
-from src.celery_app.services.atomic_service import (
+from src.celery_app.services.atomic_service import (  # noqa: E402
     get_document_window,
     get_har_window,
     generate_all_atomic_labels,
@@ -53,21 +48,25 @@ from src.celery_app.services.atomic_service import (
     generate_social_label,
     generate_movement_label,
 )
-from src.celery_app.services.summary_service import (
+from src.celery_app.services.summary_service import (  # noqa: E402
     compress_atomic_activities,
     get_all_users_with_activities,
     generate_summary,
     insert_summary_log,
     SummaryOutput,
 )
-from src.celery_app.services.intervention_service import (
+from src.celery_app.services.intervention_service import (  # noqa: E402
     get_recent_summaries,
     generate_intervention_from_summary,
     insert_intervention,
     InterventionOutput,
 )
-from src.celery_app.schemas.har_schemas import HARLabel
-from src.celery_app.schemas.atomic_schemas import AtomicActivity
+from src.celery_app.schemas.atomic_schemas import AtomicActivity  # noqa: E402
+
+
+def has_service_role_key() -> bool:
+    """Check if service role key is available for admin operations."""
+    return bool(os.getenv("SUPABASE_SERVICE_ROLE_KEY"))
 
 
 # ============================================================================

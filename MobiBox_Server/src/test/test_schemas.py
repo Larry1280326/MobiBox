@@ -10,10 +10,8 @@ from src.register.schemas import RegisterRequest
 from src.upload.schemas import DocumentItem, DocumentUploadRequest, IMUItem, IMUUploadRequest
 from src.query.schemas import (
     SummaryLogRequest,
-    SummaryLogItem,
     SummaryLogResponse,
     InterventionRequest,
-    InterventionItem,
     InterventionResponse,
     InterventionFeedbackRequest,
     SummaryLogFeedbackRequest,
@@ -24,18 +22,16 @@ from src.celery_app.schemas.har_schemas import HARLabel, IMUWindow
 from src.celery_app.schemas.atomic_schemas import (
     AtomicActivity,
     AtomicActivityResult,
-    DocumentWindow,
 )
 from src.celery_app.services.summary_service import SummaryOutput
 from src.celery_app.services.intervention_service import InterventionOutput
 
-from src.test.factories.upload_factory import make_document_item, make_document_batch
-from src.test.factories.imu_factory import make_imu_item, make_imu_batch
+from src.test.factories.upload_factory import make_document_item
+from src.test.factories.imu_factory import make_imu_item
 from src.test.factories.har_factory import make_har_label
 from src.test.factories.atomic_factory import make_atomic_activity
-from src.test.factories.summary_factory import make_summary_log, make_summary_log_response
+from src.test.factories.summary_factory import make_summary_log_response
 from src.test.factories.intervention_factory import (
-    make_intervention,
     make_intervention_response,
     make_intervention_feedback,
     make_log_feedback,

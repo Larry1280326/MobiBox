@@ -4,7 +4,6 @@ Verifies the complete flow: Register → Upload Documents → Upload IMU →
 Wait for Processing → Fetch Summary → Fetch Intervention → Submit Feedback.
 """
 
-import asyncio
 import pytest
 
 

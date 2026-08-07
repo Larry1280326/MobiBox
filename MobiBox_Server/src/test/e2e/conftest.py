@@ -6,7 +6,6 @@ which simplifies testing but doesn't exercise the real queue.
 """
 
 import os
-from unittest.mock import AsyncMock, patch
 
 import pytest
 import httpx
@@ -43,13 +42,9 @@ def mock_llm_services():
     Even in E2E tests, we mock the LLM to avoid costs and flakiness.
     The actual data pipeline (upload → store → process → retrieve) is
     tested with real MongoDB, RabbitMQ, and Celery.
-    """
-    from src.test.factories.llm_response_factory import (
-        make_summary_output,
-        make_intervention_output,
-    )
 
-    # In E2E tests, patches must be in place before the test runs
-    # because the backend is a separate process.
-    # These patches only affect the test process, not the running server.
+    Note: In E2E tests, the backend runs as a separate process, so
+    patches in the test process don't affect it. The backend should be
+    started with mock LLM configuration.
+    """
     pass  # No patches here — E2E tests call the real running server

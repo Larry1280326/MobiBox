@@ -4,7 +4,6 @@ Validates that all expected endpoints exist, respond with correct status codes,
 and produce responses matching the Pydantic response models.
 """
 
-import pytest
 from fastapi.testclient import TestClient
 
 # All endpoints expected to exist

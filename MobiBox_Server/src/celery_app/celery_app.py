@@ -24,7 +24,7 @@ celery_app = Celery(
 @setup_logging.connect
 def configure_celery_logging(**kwargs):
     """Configure Celery logging with rotational file handlers."""
-    from src.logging_config import get_file_handler, DEFAULT_LOGS_DIR
+    from src.logging_config import get_file_handler
 
     # Disable Celery's default logging configuration
     # We'll set up our own handlers
@@ -52,6 +52,7 @@ def configure_celery_logging(**kwargs):
     celery_logger = logging.getLogger("celery")
     celery_logger.setLevel(logging.INFO)
     celery_logger.addHandler(file_handler)
+
 
 # Celery configuration
 celery_app.conf.update(

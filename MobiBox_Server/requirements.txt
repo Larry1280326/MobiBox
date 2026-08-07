@@ -44,7 +44,6 @@ flake8
 celery
 aio-pika
 
-# HAR / IMU model
+# Scientific (lightweight — numpy only; torch is too heavy for CI)
+# torch and sentence-transformers are installed separately for production
 numpy
-torch
-sentence-transformers

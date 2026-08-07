@@ -71,6 +71,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Global exception handlers — log tracebacks, return safe responses
 @app.exception_handler(mongo_err.DuplicateKeyError)
 async def duplicate_key_handler(request, exc):

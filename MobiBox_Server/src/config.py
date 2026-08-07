@@ -35,7 +35,6 @@ class Settings(BaseSettings):
     baidu_maps_enabled: bool = False
 
 
-
 class LLMSettings(BaseSettings):
     """LLM settings for OpenRouter integration."""
 

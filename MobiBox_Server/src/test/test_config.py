@@ -3,8 +3,6 @@
 import os
 from unittest.mock import patch
 
-import pytest
-
 from src.config import Settings, LLMSettings, get_settings, get_llm_settings
 
 

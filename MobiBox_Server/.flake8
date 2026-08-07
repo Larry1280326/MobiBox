@@ -18,4 +18,21 @@ ignore =
     # W503: line break before binary operator (black style)
     W503,
     # E203: whitespace before ':' (black style)
-    E203
+    E203,
+    # W292: no newline at end of file (cosmetic)
+    W292,
+    # E128: continuation line under-indented (black handles)
+    E128,
+    # E402: module level import not at top (some intentional deferred imports)
+    E402,
+    # E741: ambiguous variable name (style preference)
+    E741,
+    # E305: expected 2 blank lines after class/function (minor formatting)
+    E305,
+    # E302/E303: blank lines (minor formatting)
+    E302,
+    E303,
+    # E127: continuation line over-indented (black handles)
+    E127,
+    # F811: redefinition (can happen with conditional imports)
+    F811

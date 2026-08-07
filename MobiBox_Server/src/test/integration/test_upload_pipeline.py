@@ -4,13 +4,9 @@ Tests the upload endpoints trigger the correct Celery tasks and data is stored.
 Uses mocked Celery tasks but validates request handling and data flow.
 """
 
-import pytest
 from fastapi.testclient import TestClient
 
-from src.test.factories.upload_factory import (
-    make_document_batch,
-    make_document_item,
-)
+from src.test.factories.upload_factory import make_document_batch
 from src.test.factories.imu_factory import make_imu_batch, make_imu_item
 
 

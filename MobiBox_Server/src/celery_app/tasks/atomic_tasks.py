@@ -12,7 +12,6 @@ from src.celery_app.services.atomic_service import (
     generate_all_atomic_labels,
     insert_atomic_activity,
 )
-from src.celery_app.schemas.atomic_schemas import AtomicActivityResult
 from src.database import get_database
 
 logger = logging.getLogger(__name__)

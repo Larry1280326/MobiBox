@@ -4,8 +4,6 @@ from datetime import datetime, timedelta
 from typing import Optional
 from zoneinfo import ZoneInfo
 
-from bson import ObjectId
-
 from src.database import get_database
 from src.query.constants import (
     SUMMARY_LOGS_COLLECTION,

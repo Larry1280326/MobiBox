@@ -91,7 +91,7 @@ async def generate_har_label(
     if not labels:
         return None
 
-    labels_with_count = [f"{l} (count: {labels.count(l)})" for l in set(labels)]
+    labels_with_count = [f"{label} (count: {labels.count(label)})" for label in set(labels)]
 
     system_prompt = """You are an activity recognition expert.
 Analyze the provided HAR (Human Activity Recognition) labels and determine the most likely

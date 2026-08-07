@@ -8,7 +8,6 @@ import asyncio
 import logging
 import random
 from datetime import datetime, timedelta
-from typing import Optional
 from zoneinfo import ZoneInfo
 
 from src.database import get_database
@@ -23,9 +22,9 @@ from src.celery_app.services.processing_state_service import (
     update_last_processed,
     get_imu_window_since,
 )
+from src.celery_app.schemas.har_schemas import HARLabel
 
 logger = logging.getLogger(__name__)
-from src.celery_app.schemas.har_schemas import HARLabel
 
 CHINA_TZ = ZoneInfo("Asia/Shanghai")
 

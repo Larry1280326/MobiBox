@@ -13,7 +13,6 @@ logger = logging.getLogger(__name__)
 
 async def ensure_indexes(db: AsyncIOMotorDatabase):
     """Create all MongoDB indexes. Idempotent — safe to call on every startup."""
-    settings = None  # lazy import to avoid circular import at module level
 
     # ── users ──────────────────────────────────────────────
     await db["users"].create_index("name", unique=True, name="idx_users_name")

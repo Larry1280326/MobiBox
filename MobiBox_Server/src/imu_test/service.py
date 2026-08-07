@@ -41,8 +41,10 @@ async def predict_activity(request: IMUTestRequest, timeout_seconds: float = DEF
     logger.info(f"TSFM model available: {tsfm_available}")
 
     if not tsfm_available:
-        logger.warning("TSFM model not available - check if sentence-transformers models are cached. "
-                      "Set HF_HOME and SENTENCE_TRANSFORMERS_HOME environment variables.")
+        logger.warning(
+            "TSFM model not available - check if sentence-transformers models are cached. "
+            "Set HF_HOME and SENTENCE_TRANSFORMERS_HOME environment variables."
+        )
 
     # Run HAR model prediction with timeout
     try:

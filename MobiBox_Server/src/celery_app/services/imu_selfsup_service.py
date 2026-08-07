@@ -27,7 +27,6 @@ from typing import Optional
 import numpy as np
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 logger = logging.getLogger(__name__)
 
@@ -501,7 +500,7 @@ def _test_selfsup() -> bool:
 
         label, conf, source = run_selfsup_inference(dummy)
         logger.info("SelfSupEncoder self-test: label=%s conf=%.2f source=%s",
-                     label, conf, source)
+                    label, conf, source)
         return True
     except Exception as exc:
         logger.warning("SelfSupEncoder self-test failed: %s", exc)

@@ -4,7 +4,6 @@ Each test validates that API responses conform to the expected structure
 documented in the Pydantic schemas.
 """
 
-import pytest
 from fastapi.testclient import TestClient
 
 

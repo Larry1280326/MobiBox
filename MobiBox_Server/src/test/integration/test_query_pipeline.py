@@ -4,17 +4,12 @@ Tests summary log fetching, intervention fetching, atomic activity retrieval,
 and feedback submission endpoints with real MongoDB.
 """
 
-import pytest
 from fastapi.testclient import TestClient
 
-from src.test.factories.summary_factory import make_summary_log, make_summary_log_response
 from src.test.factories.intervention_factory import (
-    make_intervention,
-    make_intervention_response,
     make_intervention_feedback,
     make_log_feedback,
 )
-from src.test.factories.upload_factory import make_document_batch
 
 
 class TestSummaryLogFetching:
