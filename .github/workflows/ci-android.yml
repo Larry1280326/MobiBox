@@ -78,59 +78,7 @@ jobs:
 
   # ──────────────────────────────────────────────
   # Instrumented Tests (Android Emulator)
-  # Runs only on main/master push or manual
-  # dispatch to save CI minutes.
+  # Disabled for now — requires real Espresso tests
+  # and Baidu SDK is incompatible with x86 emulators.
+  # Re-enable when real UI tests are written.
   # ──────────────────────────────────────────────
-  instrumented-tests:
-    runs-on: ubuntu-24.04
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-    strategy:
-      matrix:
-        api-level: [26, 35]
-      fail-fast: false
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: temurin
-
-      - uses: gradle/actions/setup-gradle@v4
-
-      - name: Make gradlew executable
-        run: chmod +x gradlew
-
-      - name: Enable KVM
-        run: |
-          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' \
-            | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-          sudo udevadm control --reload-rules
-          sudo udevadm trigger --name-match=kvm
-
-      - uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: ${{ matrix.api-level }}
-          arch: x86_64
-          target: google_apis
-          profile: pixel_6
-          emulator-options: >-
-            -no-window
-            -gpu swiftshader_indirect
-            -noaudio
-            -no-boot-anim
-            -camera-back none
-            -camera-front none
-          disable-animations: true
-          disable-spellchecker: true
-          script: |
-            adb root
-            ./gradlew connectedAndroidTest --stacktrace
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: instrumented-test-results-api${{ matrix.api-level }}
-          path: app/build/reports/androidTests/connected/
-          retention-days: 7
