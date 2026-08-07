@@ -14,8 +14,8 @@ public final class Constants {
     // API Configuration
     // =====================
 
-    /** Base API host URL — configurable via BuildConfig for testing */
-    public static final String API_HOST = com.example.mobibox.BuildConfig.API_HOST;
+    /** Base API host URL */
+    public static final String API_HOST = "http://120.25.178.24:8001";
 
     // API Endpoints
     public static final String ENDPOINT_GET_INTERVENTION = "/get_intervention";

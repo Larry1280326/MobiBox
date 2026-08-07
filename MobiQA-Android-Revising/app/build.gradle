@@ -15,9 +15,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        // Configurable API host for testing
-        buildConfigField "String", "API_HOST", "\"http://120.25.178.24:8001\""
-
         // 明确支持16KB页面大小
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -40,16 +37,8 @@ android {
     }
     buildFeatures {
         viewBinding true
-        buildConfig true
     }
 
-    // Robolectric requires Android resources in unit tests
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
-    }
-    
     // 支持16KB页面大小 (Android 15+ 要求)
     packaging {
         jniLibs {
