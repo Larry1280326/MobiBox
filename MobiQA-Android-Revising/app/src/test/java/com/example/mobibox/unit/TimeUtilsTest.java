@@ -3,11 +3,15 @@ package com.example.mobibox.unit;
 import com.example.mobibox.util.TimeUtils;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import static org.junit.Assert.*;
 
 /**
  * Tests for TimeUtils UTC → Hong Kong time conversion.
+ * Uses Robolectric to provide Android framework (TextUtils).
  */
+@RunWith(RobolectricTestRunner.class)
 public class TimeUtilsTest {
 
     @Test
