@@ -1,0 +1,36 @@
+<!--<resources xmlns:tools="http://schemas.android.com/tools">-->
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    <style name="Base.Theme.Datacollectionapp" parent="Theme.Material3.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Customize your light theme here. &ndash;&gt;-->
+<!--        &lt;!&ndash; <item name="colorPrimary">@color/my_light_primary</item> &ndash;&gt;-->
+<!--    </style>-->
+
+<!--    <style name="Theme.Datacollectionapp" parent="Base.Theme.Datacollectionapp" />-->
+
+<!--    <style name="Theme.MobiBox.NoActionBar">-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
+
+<!--    <style name="Theme.MobiBox.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+
+<!--    <style name="Theme.MobiBox.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+<!--</resources>-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- 基础主题 -->
+    <style name="Base.Theme.Datacollectionapp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 主题自定义项 -->
+    </style>
+
+    <!-- 应用主主题 -->
+    <style name="Theme.Datacollectionapp" parent="Base.Theme.Datacollectionapp" />
+
+    <!-- 修正：明确继承应用主主题 -->
+    <style name="Theme.MobiBox.NoActionBar" parent="Theme.Datacollectionapp">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- 其他样式... -->
+</resources>

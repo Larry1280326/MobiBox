@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="7dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="0dp"
+            android:fontFamily="serif"
+            android:lineSpacingExtra="15dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="20dp"
+            android:text="⚠ Authorization PAGE"
+            android:textSize="28sp" />
+
+
+        <TextView
+            android:id="@+id/intervention_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/border_text"
+            android:lineSpacingExtra="15dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="20dp"
+            android:text="@string/consent_form"
+            android:textSize="16sp" />
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <EditText
+                android:id="@+id/input_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="You MUST input your name here."
+                android:textColorHint="#FF0000"
+                android:inputType="text"
+                android:scrollbars="horizontal"
+                android:overScrollMode="ifContentScrolls"
+                android:scrollbarStyle="insideOverlay" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/intomain_button"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/Azure"
+            android:textColor="@color/Aquamarine2"
+            android:text="Accept ✔"
+            android:textSize="20sp" />
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

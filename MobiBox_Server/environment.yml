@@ -1,0 +1,62 @@
+name: Mobibox_backend
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    # FastAPI core
+    - fastapi
+    - uvicorn[standard]
+
+    # Data validation and serialization
+    - pydantic
+    - pydantic-settings
+
+    # Database
+    - motor  # Async MongoDB driver
+    - pymongo  # Sync MongoDB driver (for PyTorch Dataset)
+
+    # Authentication & Security
+    - python-jose[cryptography]  # JWT tokens
+    - passlib[bcrypt]  # Password hashing
+    - python-multipart  # Form data parsing
+
+    # HTTP client
+    - httpx
+    - aiohttp
+
+    # Testing
+    - pytest
+    - pytest-asyncio
+    - pytest-mock
+    - httpx  # For testing FastAPI
+
+    # Utilities
+    - python-dotenv
+    - pyyaml
+    - orjson  # Fast JSON serialization
+
+    # LLM Integration
+    - langchain-openai
+    - langchain-core
+    - langchain-text-splitters
+
+    # Development tools
+    - black
+    - isort
+    - flake8
+    - mypy
+
+    # Celery
+    - celery
+    - aio-pika
+
+    # HAR / IMU model (numpy required; torch for transformer when checkpoint set)
+    - numpy
+    - torch
+
+    # TSFM model dependencies
+    - sentence-transformers
+

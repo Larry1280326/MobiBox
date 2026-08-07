@@ -1,0 +1,49 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 头部（猫猫脸 + 安卓机器人） -->
+    <path
+        android:fillColor="#00BCD4"
+    android:pathData="M54,18 C70.568,18 84,31.432 84,48 L84,60 C84,76.568 70.568,90 54,90 C37.432,90 24,76.568 24,60 L24,48 C24,31.432 37.432,18 54,18 Z" />
+
+    <!-- 猫耳朵（左） -->
+    <path
+        android:fillColor="#00BCD4"
+        android:pathData="M30,26 L36,6 L42,18 Z" />
+
+    <!-- 猫耳朵（右） -->
+    <path
+        android:fillColor="#00BCD4"
+        android:pathData="M66,18 L72,6 L78,26 Z" />
+
+    <!-- 眼睛（左） -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M45,36 C45,39.314 42.314,42 39,42 C35.686,42 33,39.314 33,36 C33,32.686 35.686,30 39,30 C42.314,30 45,32.686 45,36 Z" />
+
+    <!-- 眼睛（右） -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M75,36 C75,39.314 72.314,42 69,42 C65.686,42 63,39.314 63,36 C63,32.686 65.686,30 69,30 C72.314,30 75,32.686 75,36 Z" />
+
+    <!-- 胡须（左） -->
+    <path
+        android:strokeColor="#B2EBF2"
+    android:strokeWidth="2"
+    android:pathData="M39,48 L27,42 M39,52 L27,54 M39,56 L27,66" />
+
+    <!-- 胡须（右） -->
+    <path
+        android:strokeColor="#B2EBF2"
+        android:strokeWidth="2"
+        android:pathData="M69,48 L81,42 M69,52 L81,54 M69,56 L81,66" />
+
+    <!-- 头顶的盒子（Mobibox 元素） -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,12 L54,6 L60,12 L54,18 Z" />
+
+</vector>

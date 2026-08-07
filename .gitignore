@@ -1,0 +1,29 @@
+# Root-level .gitignore for MobiBox monorepo
+# Sub-project .gitignore files in MobiBox_Server/ and MobiQA-Android-Revising/
+# handle language-specific ignores.
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE / Editor
+.claude/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Archives (don't commit zip files)
+*.zip
+*.tar.gz
+*.rar
+
+# Git backups (preserved locally)
+.git.backup/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak

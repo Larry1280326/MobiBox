@@ -1,0 +1,158 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.example.mobibox'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.example.mobibox"
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Configurable API host for testing
+        buildConfigField "String", "API_HOST", "\"http://120.25.178.24:8001\""
+
+        // 明确支持16KB页面大小
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        viewBinding true
+        buildConfig true
+    }
+
+    // Robolectric requires Android resources in unit tests
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    
+    // 支持16KB页面大小 (Android 15+ 要求)
+    packaging {
+        jniLibs {
+            useLegacyPackaging = false
+            // 保持第三方库的调试符号
+            keepDebugSymbols += ['**/liblocSDK8b.so', '**/libindoor.so']
+        }
+        // 确保所有native库按16KB边界对齐
+        resources {
+            pickFirsts += ['**/*.so']
+        }
+    }
+    
+    //用百度SDK 設置
+    sourceSets{
+        main{
+            jniLibs.srcDirs=['libs']
+        }
+    }
+}
+
+// 添加任务：检查第三方so库的16KB对齐状态
+tasks.register('check16KBAlignment') {
+    group = 'verification'
+    description = 'Check if third-party native libraries support 16KB page size'
+    
+    doLast {
+        logger.warn("=" * 80)
+        logger.warn("16KB Page Size Compatibility Check")
+        logger.warn("=" * 80)
+        logger.warn("")
+        logger.warn("Current Baidu Location SDK libraries are NOT 16KB-aligned:")
+        logger.warn("  - liblocSDK8b.so")
+        logger.warn("  - libindoor.so")
+        logger.warn("")
+        logger.warn("This is a known limitation of the Baidu SDK.")
+        logger.warn("")
+        logger.warn("Solutions:")
+        logger.warn("  1. Contact Baidu to request 16KB-aligned SDK versions")
+        logger.warn("  2. Wait for Baidu to release updated SDKs before November 2025")
+        logger.warn("  3. Consider using alternative location SDKs (Google Play Services, etc.)")
+        logger.warn("")
+        logger.warn("Note: This warning does not affect app functionality on current devices.")
+        logger.warn("=" * 80)
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.lifecycle:lifecycle-service:2.5.1'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+    implementation 'androidx.work:work-runtime:2.8.0'
+    implementation 'com.google.guava:guava:31.1-android'
+//    implementation 'androidx.activity:activity-ktx:1.6.1'
+//    implementation 'androidx.fragment:fragment-ktx:1.5.5'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation libs.commons.csv
+
+
+    implementation libs.connect.client
+    implementation 'com.google.android.gms:play-services-base'
+    implementation 'com.google.android.gms:play-services-tasks'
+    implementation "androidx.health.connect:connect-client:1.1.0-alpha11.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.1"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:2.1.0"
+    implementation "androidx.core:core-ktx:1.15.0"
+    implementation "com.squareup.okhttp3:okhttp:4.12.0"
+    implementation 'androidx.activity:activity:1.8.0' // 或者更新版本
+    implementation 'androidx.fragment:fragment:1.6.0' // 或者更新版本
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation libs.tools.core
+    testImplementation libs.junit
+    testImplementation libs.mockito.core
+    testImplementation libs.mockwebserver
+    testImplementation libs.robolectric
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    implementation libs.appcompat
+    implementation libs.activity
+    implementation libs.constraintlayout
+    androidTestImplementation libs.ext.junit
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+    implementation fileTree(dir:  'libs' , include: ['*.jar'])
+//    androidTestImplementation ('androidTestImplementation \'androidx.test.espresso:espresso-core:3.5.1\'', {
+//        exclude group: 'com.android.support',  module: 'support-annotations'
+//    })
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+//    implementation 'com.baidu.lbsyun:location:9.3.3'
+}

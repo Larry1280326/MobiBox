@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Android 机器人头部 -->
+    <path
+        android:fillColor="#3DDC84"
+    android:pathData="M24,12 C28.418,12 32,15.582 32,20 L32,28 C32,32.418 28.418,36 24,36 C19.582,36 16,32.418 16,28 L16,20 C16,15.582 19.582,12 24,12 Z" />
+
+    <!-- 机器人眼睛 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M22,18 C22,19.105 21.105,20 20,20 C18.895,20 18,19.105 18,18 C18,16.895 18.895,16 20,16 C21.105,16 22,16.895 22,18 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,18 C30,19.105 29.105,20 28,20 C26.895,20 26,19.105 26,18 C26,16.895 26.895,16 28,16 C29.105,16 30,16.895 30,18 Z" />
+
+    <!-- 第一条波浪线（深蓝色） -->
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M6,10 C6,10 8,6 12,6 C16,6 18,10 18,10 C18,10 20,6 24,6 C28,6 30,10 30,10 C30,10 32,6 36,6 C40,6 42,10 42,10 L42,12 C42,12 40,8 36,8 C32,8 30,12 30,12 C30,12 28,8 24,8 C20,8 18,12 18,12 C18,12 16,8 12,8 C8,8 6,12 6,12 Z" />
+
+    <!-- 第二条波浪线（浅蓝色） -->
+    <path
+        android:fillColor="#64B5F6"
+    android:pathData="M6,14 C6,14 8,10 12,10 C16,10 18,14 18,14 C18,14 20,10 24,10 C28,10 30,14 30,14 C30,14 32,10 36,10 C40,10 42,14 42,14 L42,16 C42,16 40,12 36,12 C32,12 30,16 30,16 C30,16 28,12 24,12 C20,12 18,16 18,16 C18,16 16,12 12,12 C8,12 6,16 6,16 Z" />
+
+</vector>
