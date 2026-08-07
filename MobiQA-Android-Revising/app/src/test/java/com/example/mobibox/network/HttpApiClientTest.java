@@ -1,4 +1,4 @@
-package com.example.mobibox.unit;
+package com.example.mobibox.network;
 
 import com.example.mobibox.factories.TestDataFactory;
 import com.example.mobibox.network.HttpApiClient;
